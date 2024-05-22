@@ -1,4 +1,4 @@
-# [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=33&pause=1000&color=174DCD&width=435&lines=Product+Management+API+Application;Create+your+task+today!;React+Application)](https://git.io/typing-svg)
+# [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=33&pause=1000&color=174DCD&width=435&lines=Product+Management+API+Application;Create+your+API+today!;Typescript+Application)](https://git.io/typing-svg)
 
 ## Introduction
 
@@ -62,7 +62,7 @@ Create a `.env` file in the root of your project and add essential environment v
 
 ```bash
 PORT="setup a port"  // example: PORT: 5000
-DB_URI="setup your mongo url"
+DB_URI="setup your mongodb url"
 ```
 
 ### 🛠️ Compile TypeScript
