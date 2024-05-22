@@ -52,14 +52,12 @@ const productSchema = new Schema<Product>({
       type: variantSchema,
       required: [true, 'Product variant is required'],
       _id: false,
-      __v: false,
     },
   ],
   inventory: {
     type: inventorySchema,
     required: [true, 'Product inventory is required'],
     _id: false,
-    __v: false,
   },
 });
 
