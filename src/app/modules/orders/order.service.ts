@@ -2,6 +2,7 @@ import { ProductModel } from '../products/product.model';
 import { Order } from './order.interface';
 import { OrderModel } from './order.model';
 
+// order create service
 const createOrderIntoDB = async (order: Order) => {
   // find the product
   const product = await ProductModel.findById(order.productId);
@@ -51,6 +52,8 @@ const createOrderIntoDB = async (order: Order) => {
   return result;
 };
 
+// service work for get all orders and find orders by user email
+
 const getAllOrdersFromDB = async (email: string): Promise<Order[] | null> => {
   const $regex = new RegExp(email, 'i');
 
@@ -76,6 +79,7 @@ const retrieveOrdersFromDb = async (
   }
 };
 
+// service for a single order
 const getSingleOrderFromDB = async (_id: string) => {
   const result = await OrderModel.findOne({ _id });
   return result;

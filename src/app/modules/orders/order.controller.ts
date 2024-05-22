@@ -54,6 +54,7 @@ const getAllOrders = async (req: Request, res: Response) => {
   }
 };
 
+// find a single product by using id and get error when id doesn't match
 const getSingleOrder = async (req: Request, res: Response) => {
   try {
     const { orderId } = req.params;
@@ -80,6 +81,7 @@ const getSingleOrder = async (req: Request, res: Response) => {
   }
 };
 
+// export this order main controllers for using another file
 export const OrderControllers = {
   createOrder,
   getAllOrders,

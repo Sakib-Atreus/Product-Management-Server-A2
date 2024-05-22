@@ -17,4 +17,5 @@ const orderValidationSchema = z.object({
     .max(999, { message: 'Quantity cannot exceed 1000' }),
 });
 
+// we can export this validation model for using another file
 export default orderValidationSchema;
