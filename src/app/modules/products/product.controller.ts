@@ -6,6 +6,7 @@ import {
 } from './product.validation';
 import { ZodError } from 'zod';
 
+// this is controller for creating a product
 const createProduct = async (req: Request, res: Response) => {
   try {
     const { product: productData } = req.body;
@@ -29,6 +30,7 @@ const createProduct = async (req: Request, res: Response) => {
   }
 };
 
+// this control handle to get all products
 const getAllProducts = async (req: Request, res: Response) => {
   try {
     const searchTerm = req.query.searchTerm;
@@ -49,7 +51,7 @@ const getAllProducts = async (req: Request, res: Response) => {
     // Fetch all products from the database
     const result = await ProductServices.getAllProductsFromDB(query);
 
-    // If no products are found, return a 404 status code
+    // If no products are found, return a 404 status error
     if (!result || result.length === 0) {
       return res
         .status(404)
@@ -80,6 +82,7 @@ const getAllProducts = async (req: Request, res: Response) => {
   }
 };
 
+// for get a single product, this control handle this
 const getSingleProduct = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
@@ -106,6 +109,7 @@ const getSingleProduct = async (req: Request, res: Response) => {
   }
 };
 
+// for delete a single product, this control work for it
 const deleteProduct = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
@@ -120,6 +124,7 @@ const deleteProduct = async (req: Request, res: Response) => {
 
     const result = await ProductServices.deleteProductFromDB(productId);
 
+    // if product find by id, send a response
     res.status(200).json({
       success: true,
       message: 'Product deleted successfully!',
@@ -133,6 +138,7 @@ const deleteProduct = async (req: Request, res: Response) => {
   }
 };
 
+// for update the product, this control work for it
 const updateProduct = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
@@ -166,6 +172,7 @@ const updateProduct = async (req: Request, res: Response) => {
     }
   }
 };
+
 
 export const ProductControllers = {
   createProduct,
