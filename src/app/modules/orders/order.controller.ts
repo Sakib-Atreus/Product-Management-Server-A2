@@ -2,12 +2,14 @@ import { Request, Response } from 'express';
 import { OrderServices } from './order.service';
 import orderValidationSchema from './order.validation';
 
+// this is controller for creating a order
 const createOrder = async (req: Request, res: Response) => {
   try {
     const { order: orderData } = req.body;
     const parsedOrderData = orderValidationSchema.parse(orderData);
     const result = await OrderServices.createOrderIntoDB(parsedOrderData);
 
+    // for send response
     res.status(200).json({
       success: true,
       message: 'Order created successfully!',
@@ -22,17 +24,27 @@ const createOrder = async (req: Request, res: Response) => {
   }
 };
 
+// this control handle to get all products and find order by individual user email
 const getAllOrders = async (req: Request, res: Response) => {
   try {
     const { email } = req.query as { email: string };
 
     const result = await OrderServices.getAllOrdersFromDB(email);
 
-    res.status(200).json({
-      success: true,
-      message: 'Products fetched successfully!',
-      data: result,
-    });
+    if(email){
+      res.status(200).json({
+        success: true,
+        message: 'Orders fetched successfully for user email!',
+        data: result,
+      });
+    }else{
+      res.status(200).json({
+        success: true,
+        message: 'Orders fetched successfully!',
+        data: result,
+      });
+    }
+    
   } catch (error: any) {
     res.status(500).json({
       success: false,
