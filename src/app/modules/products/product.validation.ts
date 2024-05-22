@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+// validation schema for variant model
 const variantValidationSchema = z.object({
   type: z
     .string()
@@ -11,6 +12,7 @@ const variantValidationSchema = z.object({
     .max(20, { message: 'Variant value must be at most 20 characters long.' }),
 });
 
+// validation schema for inventory model
 const inventoryValidationSchema = z.object({
   quantity: z
     .number()
@@ -20,6 +22,7 @@ const inventoryValidationSchema = z.object({
   inStock: z.boolean({ required_error: 'In-stock status is required.' }),
 });
 
+// validation schema for product model
 const productValidationSchema = z.object({
   name: z
     .string()
@@ -57,4 +60,5 @@ const productValidationSchema = z.object({
 // making the entire product schema optional
 const partialProductValidationSchema = productValidationSchema.partial();
 
+// export this validation schema for using another file
 export { productValidationSchema, partialProductValidationSchema };

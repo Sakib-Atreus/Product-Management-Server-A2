@@ -1,6 +1,7 @@
 import { Schema, model } from 'mongoose';
 import { Inventory, Product, Variant } from './product.interface';
 
+// this schema make for variant data
 const variantSchema = new Schema<Variant>({
   type: {
     type: String,
@@ -12,6 +13,7 @@ const variantSchema = new Schema<Variant>({
   },
 });
 
+// this schema make for inventory data
 const inventorySchema = new Schema<Inventory>({
   quantity: {
     type: Number,
@@ -23,6 +25,7 @@ const inventorySchema = new Schema<Inventory>({
   },
 });
 
+// this schema make for main product data
 const productSchema = new Schema<Product>({
   name: {
     type: String,
@@ -61,4 +64,5 @@ const productSchema = new Schema<Product>({
   },
 });
 
+// we can export this main schema model for using another file
 export const ProductModel = model<Product>('Product', productSchema);
