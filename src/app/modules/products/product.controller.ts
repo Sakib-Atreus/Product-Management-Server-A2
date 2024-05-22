@@ -164,7 +164,6 @@ const updateProduct = async (req: Request, res: Response) => {
       // Handle validation errors
       res.status(400).json({ message: 'Validation error', errors: err.errors });
     } else {
-      console.error(err);
       res.status(500).json({
         message: 'An error occurred while updating the product',
         error: err.message,
